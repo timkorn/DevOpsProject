@@ -3,7 +3,7 @@
 name: CI
 
 env:
-  app-name: app_${{github.run_number}}
+  app-name: app${{github.run_number}}
 
 # Controls when the action will run.
 on:
@@ -28,8 +28,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Build cpp
-        run: g++ Hello.cpp -o ${{env.app_name}}
+       - name: Build
+        run: g++ Hello.cpp -o ${{ env.app_name}}_${{ runner.os}}
 
       - name: SendMessage to TelegramBot
         uses: appleboy/telegram-action@master
