@@ -28,7 +28,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-       - name: Build
+      - name: Build
         run: g++ Hello.cpp -o ${{ env.app_name}}_${{ runner.os}}
 
       - name: SendMessage to TelegramBot
