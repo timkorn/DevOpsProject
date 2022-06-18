@@ -40,11 +40,11 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: Build completed
+          message: Build ${{ env.app-name}} completed
       - name: Error handler
         if: ${{ failure() }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: Build failed
+          message: Build ${{ env.app-name}} failed
