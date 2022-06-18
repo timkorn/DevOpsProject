@@ -2,6 +2,9 @@
 
 name: CI
 
+env:
+  app-name: app_${{runner.os}}_${{github.run_number}}
+
 # Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
@@ -25,12 +28,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Run cpp
-        run: gcc -v
-      - name: Print env
-        run: env
       - name: Build cpp
-        run: g++ Hello.cpp -o app
+        run: g++ Hello.cpp -o ${{env.app_name}}
 
       - name: SendMessage to TelegramBot
         uses: appleboy/telegram-action@master
