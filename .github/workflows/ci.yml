@@ -27,7 +27,8 @@ jobs:
 
       - name: Run cpp
         run: gcc -v
-
+      - name: Print env
+        run: env
       - name: Build cpp
         run: g++ Hello.cpp -o app
 
