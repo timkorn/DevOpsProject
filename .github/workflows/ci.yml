@@ -30,7 +30,11 @@ jobs:
 
       - name: Build
         run: g++ Hello.cpp -o ${{ env.app_name}}_${{ runner.os}}
-
+      - name: "Upload artifact":
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: ${{ env.app_name}}_${{ runner.os}}
       - name: SendMessage to TelegramBot
         uses: appleboy/telegram-action@master
         with:
