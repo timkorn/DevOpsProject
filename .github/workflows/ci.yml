@@ -3,7 +3,7 @@
 name: CI
 
 env:
-  app-name: app_${{runner.os}}_${{github.run_number}}
+  app-name: app_${{github.run_number}}
 
 # Controls when the action will run.
 on:
